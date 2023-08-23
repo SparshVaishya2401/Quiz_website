@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Quiz App</title>
+    
+
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+
+ 
+  
+<!-- Firebase -->
+
+<div class="navbar-fixed">
+    <nav class="nav">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo"><p style="font-size:35px;font-weight: 800; margin-left: 20px;">QUIZ GAME</p></a>
+          <ul id="nav-mobile" class="right">
+            <li id="loginli""><a class="modal-trigger" href="#modal2"><p style="font-size:14px;color:#2decb3;">Login</p></a></li>
+            <li  id="signupli"><a class="modal-trigger" href="#modal1"><p style="font-size:14px;color:#2decb3;">Signup</p></a></li>
+            <li  id="logoutli"><a onclick="logout()"><p style="font-size:14px;color:#2decb3;">Logout</p></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!--Signup Modal -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Signup</h4>
+      <form autocomplete="off" onsubmit="signup(event)">
+        <input type="text" id="userNameSign" placeholder="username" />
+        <input type="email" id="signupEmail" placeholder="email" />
+        <input type="password" id="signupPassword" placeholder="password" />
+        <button class="btn waves-effect #fbc02d orange darken-2" type="submit">submit</button>   
+      </form>
+      <h6 style="margin-left:3.3rem;">or </h6>
+       <button class="btn waves-effect blue" onclick="loginWithGoogle()">Login with google</button>
+      
+     
+    </div>
+  </div>
+         
+    <!--login Modal -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4>
+      <form autocomplete="off" onsubmit="login(event)">
+        
+        <input type="email" id="loginEmail" placeholder="email" />
+        <input type="password" id="loginPassword" placeholder="password" />
+        <button class="btn waves-effect #fbc02d orange darken-2" type="submit">submit</button>   
+      </form>
+      <h6 style="margin-left:3.3rem;">or </h6>
+      <button class="btn waves-effect blue" onclick="loginWithGoogle()">Login with google</button>
+      
+     
+    </div>
+  </div>
+  
+   
+
+ 
+<div class="left">
+  
+  <div class="userDetails"></div>
+</div>
+
+
+
+<!-- Quiz game -->
+<link rel="stylesheet" href="style.css">
+
+
+
+
+<div class="welcome_box">
+  <div class="welcome-title"><span>KICK THE COMPETITION</span></div>
+  <div class="welcome-list">
+    <img class="vector" src="vector.svg">
+     
+  </div>
+ 
+</div>
+
+
+
+
+<div class="border_box"></div>
+<!-- start Quiz button -->
+<div class="start_btn"><button>Start Quiz</button></div>
+
+<div class="about_btn"><button>About</button></div>
+
+
+<!-- Info Box -->
+<div class="info_box">
+    <div class="info-title"><span>Some Rules of this Quiz</span></div>
+    <div class="info-list">
+        <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+        <div class="info">2. Once you select your answer, it can't be undone.</div>
+        <div class="info">3. You can't select any option once time goes off.</div>
+        <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+        <div class="info">5. You'll get points on the basis of your correct answers.</div>
+    </div>
+    <div class="buttons">
+        <button class="quit">Exit Quiz</button>
+        <button class="restart">Continue</button>
+    </div>
+</div>
+
+<div class="about_box">
+    <div class="info-title"><span><h3>RULES of this Quiz :</h3></span></div>
+    <div class="info-list">
+        <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+        <div class="info">2. Once you select your answer, it can't be undone.</div>
+        <div class="info">3. You can't select any option once time goes off.</div>
+        <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+        <div class="info">5. You'll get points on the basis of your correct answers.</div>
+    </div>
+    <div class="buttons">
+        <button class="ok">OK</button>
+        
+    </div>
+</div>
+
+
+
+
+<!-- Quiz Box -->
+<div class="quiz_box">
+    <header>
+        <div class="title">QUIZ</div>
+        <div class="timer">
+            <div class="time_left_txt">Time Left</div>
+            <div class="timer_sec">15</div>
+        </div>
+        <div class="time_line"></div>
+    </header>
+    <section>
+        <div class="que_text">
+            <!-- Here I've inserted question from JavaScript -->
+        </div>
+        <div class="option_list">
+            <!-- Here I've inserted options from JavaScript -->
+        </div>
+    </section>
+
+    <!-- footer of Quiz Box -->
+    <footer>
+        <div class="total_que">
+            <!-- Here I've inserted Question Count Number from JavaScript -->
+        </div>
+        <button class="next_btn">Next Ques</button>
+    </footer>
+</div>
+
+<!-- Result Box -->
+<div class="result_box">
+    <div class="icon">
+      <img class="trophy" src="result.jpg">
+    </div>
+    <div class="complete_text">You've completed the Quiz!</div>
+    <div class="score_text">
+        <!-- Here I've inserted Score Result from JavaScript -->
+    </div>
+    <div class="buttons">
+        <button class="Update" onclick="updateUserProfile(event)">Update Score</button>
+        
+        <button class="quit" onclick="updateUserProfile(event)">Home🏠</button>
+    </div>
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+</script>  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+      apiKey: "AIzaSyBHH-WYzjGoh3BJNnHCnFbSJPleK-D8T58",
+      authDomain: "quizgame-141c1.firebaseapp.com",
+      projectId: "quizgame-141c1",
+      storageBucket: "quizgame-141c1.appspot.com",
+      messagingSenderId: "33691055244",
+      appId: "1:33691055244:web:6750ae3ca699169999b7a9"
+    };
+  
+     // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  
+</script>
+
+
+
+
+    <!--socketio-->
+    
+
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+
+    
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
+    <script src="ques.js"></script>
+
+    <script src="auth.js"></script>
+    <script src ="firestoredb.js"></script>
+    <script src="script.js"></script>   
+
+</body>
+</html>
+</html>
