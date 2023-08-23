@@ -1,0 +1,17 @@
+{
+  "name": "quiz-app2",
+  "version": "1.0.0",
+  "description": "multiplayer quiz game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "socket.io": "^4.4.1"
+  }
+}
